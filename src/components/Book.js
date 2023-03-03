@@ -1,4 +1,5 @@
 import React from 'react';
+import ReviewForm from './ReviewForm';
 
 function Book({ book }) {
   //const reviews = book.reviews ? book.reviews.filter((review) => review.book_id === bookId) : [];
@@ -24,7 +25,7 @@ function Book({ book }) {
               
             </p>
           ))}
-            
+           <ReviewForm bookId={book.id} /> 
 
 
         </div>

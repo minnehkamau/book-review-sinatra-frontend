@@ -2,9 +2,8 @@ import React from 'react';
 
 function Navbar() {
   return (
-    <nav className="navbar">
+    <nav className="navbar navbar-large">
       <div className="logo">
-        
         <h1 className="logo-text">BOOK REVIEW</h1>
       </div>
       <div className="search-form">
@@ -17,5 +16,7 @@ function Navbar() {
     </nav>
   );
 }
+
+
 
 export default Navbar;

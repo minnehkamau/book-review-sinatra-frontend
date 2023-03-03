@@ -52,7 +52,7 @@ function Home() {
 
 
     <div className="container">
-        <h1 className='py-3 '>BOOKS {books && books.length}</h1>
+        {/* <h1 className='py-3 '>{books && books.length}</h1> */}
         <div className="row ">
             <div className="col-sm-8">
             {
