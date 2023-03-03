@@ -10,7 +10,7 @@ function Book({ book }) {
           <h5 className="fw-bold">{book.title}</h5>
           <p className="card-text">{book.author}</p>
           <div className='d-flex flex-row'>
-            {book.user && <p>By {book.user.username}</p>}
+            {/* {book.user && <p>By {book.user.username}</p>} */}
           {/* <p className='px-3'>{book.created_at}</p> */}
           
           </div>
@@ -21,8 +21,12 @@ function Book({ book }) {
           {book.reviews && book.reviews.filter(review => review.book_id === book.id).map((review, index) => (
             <p className='bg-light bordered mb-2' key={index}>
               {review.comment}
+              
             </p>
           ))}
+            
+
+
         </div>
 
       </div>

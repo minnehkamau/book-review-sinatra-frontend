@@ -23,22 +23,29 @@ function Home() {
       // handle the error here
     }
   }, [])
+
   useEffect(() => {
     books.forEach((book) => {
-      fetch(`http://localhost:9292/reviews?book_id=${book.id}`, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((response) => {
-          console.log(response);
-          book.reviews = response;
-          setBooks([...books]);
-        });
-    })
-  }, [books])
+      // Check if the book already has reviews
+      if (!book.reviews) {
+        fetch(`http://localhost:9292/reviews?book_id=${book.id}`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((response) => {
+            console.log(response);
+            book.reviews = response;
+            setBooks([...books]);
+          });
+      }
+    });
+  }, [books]);
+
+  
+  
   
  return(
     <div>
