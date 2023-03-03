@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Navbar() {
+function Navbar({ books }) {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredBooks, setFilteredBooks] = useState(books);
+
+  const handleSearch = (event) => {
+    const searchTerm = event.target.value;
+    setSearchTerm(searchTerm);
+
+    const filteredBooks = books.filter((book) =>
+      book.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredBooks(filteredBooks);
+  };
   return (
     <nav className="navbar navbar-large">
       <div className="logo">
@@ -13,6 +25,11 @@ function Navbar() {
         </form>
       </div>
       {/* Add other navigation links here */}
+    {/* <ul>
+      {filteredBooks.map((book) => (
+        <li key={book}>{book}</li>
+      ))}
+    </ul> */}
     </nav>
   );
 }

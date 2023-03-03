@@ -55,3 +55,6 @@ code {
 .search-form button:hover {
   background-color: #0052a3;
 }
+.card-body {
+  display: block;
+}
