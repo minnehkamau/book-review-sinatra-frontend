@@ -29,6 +29,9 @@ code {
 .logo {
   font-size: 2rem;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .search-form {
@@ -57,4 +60,6 @@ code {
 }
 .card-body {
   display: block;
+ 
+  
 }

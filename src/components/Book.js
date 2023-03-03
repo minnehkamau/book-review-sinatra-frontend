@@ -19,7 +19,7 @@ function Book({ book }) {
           <h6 className="card-text">Author:{book.author}</h6>
           <h6 className='card-text'>Genre:{book.genre}</h6>
           <div className='d-flex flex-row'>
-            {/* {book.user && <p>By {book.user.username}</p>} */}
+            
             <h6 className='card-text'>Rating:{averageRating}</h6>
           
           </div>
