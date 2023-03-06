@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Book from './Book'
 
-function Home() {
-  const [books, setBooks] = useState([])
+function Home({reviews, setReviews}) {
+  const [books, setBooks] = useState([]);
+  
   // const [loading, setLoading] = useState(true)
-
+//fetching all books
   useEffect(() => {
     try {
       fetch("http://localhost:9292/books", {
@@ -24,6 +25,7 @@ function Home() {
     }
   }, [])
 
+  //fetching reviews per each book
   useEffect(() => {
     books.forEach((book) => {
       // Check if the book already has reviews
@@ -44,32 +46,41 @@ function Home() {
     });
   }, [books]);
 
-  
+  const deleteReview = async (reviewId) => {
+    try {
+      const response = await fetch(`http://localhost:9292/reviews/${reviewId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.status === 204) {
+        setReviews(reviews.filter((review) => review.id !== reviewId));
+        window.location.reload();
+      } else {
+        const data = await response.json();
+        console.log(data.error); // handle error
+      }
+    } catch (error) {
+      console.log(error); // handle error
+    }
+  };
   
   
  return(
-    <div>
-
-
-    <div className="container">
-        {/* <h1 className='py-3 '>{books && books.length}</h1> */}
-        <div className="row ">
-            <div className="col-sm-8">
-            {
-                    books && books.map((book)=>(
-                         <Book book={book} key={book.id} />
-                    ))
-                  }
-
-            </div>
-
-      
-        </div>
-    </div>
-
-
-</div>
+  <div className="container">
+    {books.map((book) => (
+    <Book
+    key={book.id}
+    book={book}
+    reviews={reviews}
+    setReviews={setReviews}
+    deleteReview={deleteReview}
+  />
+    ))}
+  </div>
  )
 
 }
-export default Home
+export default Home;

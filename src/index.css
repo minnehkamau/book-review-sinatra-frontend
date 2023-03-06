@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:#F5EFEF ;
 }
 
 code {
@@ -16,7 +17,7 @@ code {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
+  background-color:  #1D639D;
   height: 100px;
   padding: 0 50px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -60,6 +61,28 @@ code {
 }
 .card-body {
   display: block;
+
  
   
+}
+.book-details {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+.my-custom-font {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+.link-bold {
+  font-weight: bold;
 }
